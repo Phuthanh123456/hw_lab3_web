@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Production Studio Drum Kit</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main>
+      <header class="page-header">
+        <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span> Production Studio <span class="eyebrow-divider">/</span> Input Deck</p>
+        <h1>Drum Kit</h1>
+        <p class="intro">Seven pads, labeled by their physical keyboard keys.</p>
+      </header>
+
+      <section class="kit-panel" aria-labelledby="drum-pads-heading">
+        <div class="panel-header">
+          <div>
+            <p class="section-kicker">01 <span aria-hidden="true">/</span> Input surface</p>
+            <h2 id="drum-pads-heading">Drum pads</h2>
+          </div>
+          <p class="panel-note">7 controls <span aria-hidden="true">·</span> Physical key labels</p>
+        </div>
+        <div class="drum-pads" role="group" aria-labelledby="drum-pads-heading">
+          <button class="drum-pad" id="pad-key-w" type="button" data-code="KeyW" aria-label="Drum pad for physical key W" aria-pressed="false"><kbd>W</kbd><span class="pad-meta" aria-hidden="true"><span class="pad-code">KEYW</span><span class="pad-state"><span class="state-ready">READY</span><span class="state-active">ACTIVE</span></span></span></button>
+          <button class="drum-pad" id="pad-key-a" type="button" data-code="KeyA" aria-label="Drum pad for physical key A" aria-pressed="false"><kbd>A</kbd><span class="pad-meta" aria-hidden="true"><span class="pad-code">KEYA</span><span class="pad-state"><span class="state-ready">READY</span><span class="state-active">ACTIVE</span></span></span></button>
+          <button class="drum-pad" id="pad-key-s" type="button" data-code="KeyS" aria-label="Drum pad for physical key S" aria-pressed="false"><kbd>S</kbd><span class="pad-meta" aria-hidden="true"><span class="pad-code">KEYS</span><span class="pad-state"><span class="state-ready">READY</span><span class="state-active">ACTIVE</span></span></span></button>
+          <button class="drum-pad" id="pad-key-d" type="button" data-code="KeyD" aria-label="Drum pad for physical key D" aria-pressed="false"><kbd>D</kbd><span class="pad-meta" aria-hidden="true"><span class="pad-code">KEYD</span><span class="pad-state"><span class="state-ready">READY</span><span class="state-active">ACTIVE</span></span></span></button>
+          <button class="drum-pad" id="pad-key-j" type="button" data-code="KeyJ" aria-label="Drum pad for physical key J" aria-pressed="false"><kbd>J</kbd><span class="pad-meta" aria-hidden="true"><span class="pad-code">KEYJ</span><span class="pad-state"><span class="state-ready">READY</span><span class="state-active">ACTIVE</span></span></span></button>
+          <button class="drum-pad" id="pad-key-k" type="button" data-code="KeyK" aria-label="Drum pad for physical key K" aria-pressed="false"><kbd>K</kbd><span class="pad-meta" aria-hidden="true"><span class="pad-code">KEYK</span><span class="pad-state"><span class="state-ready">READY</span><span class="state-active">ACTIVE</span></span></span></button>
+          <button class="drum-pad" id="pad-key-l" type="button" data-code="KeyL" aria-label="Drum pad for physical key L" aria-pressed="false"><kbd>L</kbd><span class="pad-meta" aria-hidden="true"><span class="pad-code">KEYL</span><span class="pad-state"><span class="state-ready">READY</span><span class="state-active">ACTIVE</span></span></span></button>
+        </div>
+      </section>
+
+      <section class="feedback-grid" aria-label="Hit feedback and audio level">
+        <section class="feedback-panel" aria-labelledby="hit-history-heading">
+          <p class="section-kicker">02 <span aria-hidden="true">/</span> Play history</p>
+          <h2 id="hit-history-heading">Hit history</h2>
+          <p class="feedback-copy">Recent pad activations, newest first.</p>
+          <p class="hit-empty" id="hit-empty-state">Waiting for the first pad hit.</p>
+          <ol class="hit-history" id="hit-history" aria-labelledby="hit-history-heading" aria-live="polite" aria-relevant="additions" aria-atomic="false"></ol>
+        </section>
+
+        <section class="feedback-panel meter-panel" aria-labelledby="audio-level-heading">
+          <p class="section-kicker">03 <span aria-hidden="true">/</span> Signal monitor</p>
+          <h2 id="audio-level-heading">Visual level meter</h2>
+          <p class="feedback-copy">Digital signal level <span aria-hidden="true">·</span> dBFS</p>
+          <div class="meter-shell">
+            <div class="level-meter" id="audio-level-meter" data-state="unmeasured" role="img" aria-label="Audio level not measured">
+              <div class="meter-track" id="audio-level-bars" aria-hidden="true">
+                <span class="meter-segment"></span><span class="meter-segment"></span><span class="meter-segment"></span><span class="meter-segment"></span>
+                <span class="meter-segment"></span><span class="meter-segment"></span><span class="meter-segment"></span><span class="meter-segment"></span>
+                <span class="meter-segment"></span><span class="meter-segment"></span><span class="meter-segment"></span><span class="meter-segment"></span>
+                <span class="meter-segment"></span><span class="meter-segment"></span><span class="meter-segment"></span><span class="meter-segment"></span>
+                <span class="meter-segment"></span><span class="meter-segment"></span><span class="meter-segment"></span><span class="meter-segment"></span>
+              </div>
+            </div>
+            <div class="meter-scale" aria-hidden="true"><span>−60</span><span>−30</span><span>0 dBFS</span></div>
+          </div>
+          <div class="meter-readout">
+            <p id="audio-level-status">Not measured</p>
+            <output id="audio-level-value">Not measured</output>
+          </div>
+          <p class="meter-note"><span class="demo-tag">DEMO AUDIO</span> Synthesized tones, not Legacy samples. dBFS is a digital level, not calibrated sound pressure.</p>
+        </section>
+      </section>
+
+      <footer class="page-footer">
+        <span class="footer-rule" aria-hidden="true"></span>
+        <p>Control surface <span>·</span> 7 physical key positions</p>
+      </footer>
+    </main>
+    <script type="module" src="./app.mjs"></script>
+  </body>
+</html>
